@@ -1,3 +1,12 @@
+packer {
+  required_plugins {
+    scaleway = {
+      version = ">= 1.1.0"
+      source  = "github.com/scaleway/scaleway"
+    }
+  }
+}
+
 locals {
   timestamp = regex_replace(timestamp(), "[- TZ:]", "")
 }
