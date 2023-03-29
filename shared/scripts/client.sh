@@ -23,7 +23,7 @@ IP_ADDRESS=$(curl -s --local-port 1-1024 http://169.254.42.42/conf?format=json |
 sed -i "s/IP_ADDRESS/$IP_ADDRESS/g" $CONFIGDIR/consul_client.hcl
 sed -i "s/RETRY_JOIN/$RETRY_JOIN/g" $CONFIGDIR/consul_client.hcl
 sudo cp $CONFIGDIR/consul_client.hcl $CONSULCONFIGDIR/consul.hcl
-sudo cp $CONFIGDIR/consul_$CLOUD.service /etc/systemd/system/consul.service
+sudo cp $CONFIGDIR/consul.service /etc/systemd/system/consul.service
 
 sudo systemctl enable consul.service
 sudo systemctl start consul.service

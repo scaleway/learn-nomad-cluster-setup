@@ -62,7 +62,6 @@ data "cloudinit_config" "server" {
     content = templatefile("../shared/data-scripts/user-data-server.sh", {
       server_count              = var.server_count
       zone                      = var.zone
-      cloud_env                 = "scaleway"
       retry_join                = local.retry_join_full
       nomad_binary              = var.nomad_binary
       nomad_consul_token_id     = var.nomad_consul_token_id
@@ -119,7 +118,6 @@ data "cloudinit_config" "client" {
 
     content = templatefile("../shared/data-scripts/user-data-client.sh", {
       zone                      = var.zone
-      cloud_env                 = "scaleway"
       retry_join                = local.retry_join_full
       nomad_binary              = var.nomad_binary
       nomad_consul_token_secret = var.nomad_consul_token_secret
